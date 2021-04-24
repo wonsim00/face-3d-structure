@@ -37,9 +37,9 @@ def get_figure():
     fig = go.Figure(data = data)
 
     fig.update_layout(
-        title = 'sphere', 
+        title = '', 
         autosize = False,
-        width = 1000, height = 1000,
+        width = 750, height = 1000,
         margin = dict(l = 0, r = 0, b = 0, t = 0),
         showlegend = False,
     )
