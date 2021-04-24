@@ -7,62 +7,62 @@ from .shapes import get_polygon as _get_polygon
 def get_surface(xyz, rgb, opacity):
     x_values, y_values, z_values = xyz
 
-    assert(z_values.shape == x_values.shape)
-    assert(z_values.shape == y_values.shape)
+    assert (z_values.shape == x_values.shape)
+    assert (z_values.shape == y_values.shape)
 
     color = f'rgb{rgb}'
     colorscale = [[0, color], [1, color]]
     color_level = np.zeros(z_values.shape)
 
     return go.Surface(
-        x = x_values,
-        y = y_values,
-        z = z_values,
-        showscale = False,
-        colorscale = colorscale,
-        surfacecolor = color_level,
-        opacity = opacity,
+        x=x_values,
+        y=y_values,
+        z=z_values,
+        showscale=False,
+        colorscale=colorscale,
+        surfacecolor=color_level,
+        opacity=opacity,
     )
 
 
 def get_curve(xyz, rgb, width):
     x_values, y_values, z_values = xyz
 
-    assert(z_values.shape == x_values.shape)
-    assert(z_values.shape == y_values.shape)
+    assert (z_values.shape == x_values.shape)
+    assert (z_values.shape == y_values.shape)
 
     color = f'rgb{rgb}'
     colorscale = [[0, color], [1, color]]
     color_level = np.zeros(z_values.shape)
 
     return go.Scatter3d(
-        x = x_values,
-        y = y_values,
-        z = z_values,
-        mode = 'lines',
-        line = dict(
-            width = width,
-            color = color_level,
-            colorscale = colorscale,
+        x=x_values,
+        y=y_values,
+        z=z_values,
+        mode='lines',
+        line=dict(
+            width=width,
+            color=color_level,
+            colorscale=colorscale,
         )
     )
 
 
 def get_point(pt, rgb, size):
-    assert(len(pt) == 3)
+    assert (len(pt) == 3)
 
     color = f'rgb{rgb}'
     colorscale = [[0, color], [1, color]]
     color_level = np.zeros(1)
 
     return go.Scatter3d(
-        x = pt[0:1],
-        y = pt[1:2],
-        z = pt[2:3],
-        marker = dict(
-            color = color_level,
-            colorscale = colorscale,
-            size = size,
+        x=pt[0:1],
+        y=pt[1:2],
+        z=pt[2:3],
+        marker=dict(
+            color=color_level,
+            colorscale=colorscale,
+            size=size,
         )
     )
 
@@ -83,6 +83,7 @@ class _Colors:
     xz_color = (0, 255, 0)
     yz_color = (0, 0, 255)
     color_black = (0, 0, 0)
+
 
 colors = _Colors()
 sqrt3 = 3 ** 0.5

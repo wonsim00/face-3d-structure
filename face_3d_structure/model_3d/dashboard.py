@@ -1,8 +1,6 @@
 """Instantiate a Dash app."""
-import numpy as np
 import plotly.graph_objects as go
 import dash
-import dash_table
 import dash_html_components as html
 import dash_core_components as dcc
 
@@ -24,8 +22,8 @@ def init_dashboard(server):
     dash_app.layout = html.Div(
         children=[
             dcc.Graph(
-                id = 'model-3d',
-                figure = get_figure()
+                id='model-3d',
+                figure=get_figure()
             ),
         ],
         id='dash-container'
@@ -34,20 +32,20 @@ def init_dashboard(server):
 
 
 def get_figure():
-    fig = go.Figure(data = data)
+    fig = go.Figure(data=data)
 
     fig.update_layout(
-        title = '', 
-        autosize = False,
-        width = 750, height = 1000,
-        margin = dict(l = 0, r = 0, b = 0, t = 0),
-        showlegend = False,
+        title='',
+        autosize=False,
+        width=750, height=1000,
+        margin=dict(l=0, r=0, b=0, t=0),
+        showlegend=False,
     )
 
     fig.update_scenes(
-        camera = dict(
-            eye = dict(x = 0, y = -2, z = 0),
-            projection_type = "orthographic",
+        camera=dict(
+            eye=dict(x=0, y=-2, z=0),
+            projection_type="orthographic",
         )
     )
 
