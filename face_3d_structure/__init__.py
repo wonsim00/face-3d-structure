@@ -8,7 +8,7 @@ def create_app():
 
     with app.app_context():
         # Import parts of our core Flask app
-        # from . import routes
+        from . import routes
 
         # Import Dash application
         from .model_3d.dashboard import init_dashboard
