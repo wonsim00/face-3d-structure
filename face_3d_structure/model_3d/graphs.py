@@ -47,20 +47,35 @@ def get_curve(xyz, rgb, width):
         )
     )
 
-sphere_color = (204, 204, 204)
-xy_color = (255, 0, 0)
-xz_color = (0, 255, 0)
-yz_color = (0, 0, 255)
-color_black = (0, 0, 0)
-sqrt3 = 3 ** 0.5
+
+def get_point(pt, rgb, size):
+    assert(len(pt) == 3)
+
+    color = f'rgb{rgb}'
+    colorscale = [[0, color], [1, color]]
+    color_level = np.zeros(1)
+
+    return go.Scatter3d(
+        x = pt[0:1],
+        y = pt[1:2],
+        z = pt[2:3],
+        marker = dict(
+            color = color_level,
+            colorscale = colorscale,
+            size = size,
+        )
+    )
+
 
 def get_xy_rectangle(z_coord):
+    x_coord_abs = sqrt3/2 + z_coord * sqrt3/6
     return _get_polygon(
-        (-sqrt3/2, -0.5, z_coord),
-        (sqrt3/2, -0.5, z_coord),
-        (sqrt3/2, 0.5, z_coord),
-        (-sqrt3/2, 0.5, z_coord)
+        (-x_coord_abs, -0.5, z_coord),
+        (x_coord_abs, -0.5, z_coord),
+        (x_coord_abs, 0.5, z_coord),
+        (-x_coord_abs, 0.5, z_coord)
     )
+
 
 class _Colors:
     sphere_color = (204, 204, 204)
