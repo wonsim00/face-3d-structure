@@ -10,7 +10,9 @@ from .data import data
 def init_dashboard(server):
     """Create a Plotly Dash dashboard."""
     dash_app = dash.Dash(
+        name=__name__,
         server=server,
+        assets_folder='../assets',
         routes_pathname_prefix='/',
         # external_stylesheets=[
         #     '/static/dist/css/styles.css',
