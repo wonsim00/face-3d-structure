@@ -1,0 +1,15 @@
+<head>
+    <title>temp</title>
+</head>
+<body>
+    <iframe id="face-3d-structure-frame" src="http://127.0.0.1:5000" style="width: 750px; height: 1000px"></iframe>
+    <button name="download" onclick="getDownloadImage()"></button>
+    <script>
+        window.onmessage = function (event) {
+            alert(event.data)
+        }
+        function getDownloadImage() {
+            document.getElementById("face-3d-structure-frame").contentWindow.postMessage('', '*');
+        }
+    </script>
+</body>
