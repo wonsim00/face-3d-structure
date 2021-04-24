@@ -40,7 +40,8 @@ def get_figure():
         title = 'sphere', 
         autosize = False,
         width = 1000, height = 1000,
-        margin = dict(l = 65, r = 50, b = 65, t = 90),
+        margin = dict(l = 0, r = 0, b = 0, t = 0),
+        showlegend = False,
     )
 
     fig.update_scenes(
